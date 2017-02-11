@@ -47,7 +47,7 @@ final class EventManager implements EventManagerInterface
     /**
      * Clear all listeners for a given event
      */
-    public function clearListeners(string $event): void
+    public function clearListeners(string $event)
     {
         foreach($this->listeners as $key=>$listener) {
             if ($listener["event"] == $event) {

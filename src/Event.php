@@ -35,7 +35,7 @@ class Event implements EventInterface
     /**
      * Get target/context from which event was triggered
      */
-    public function getTarget(): object
+    public function getTarget()
     {
         return $this->targer;
     }
@@ -51,7 +51,7 @@ class Event implements EventInterface
     /**
      * Get a single parameter by name
      */
-    public function getParam(string $name): mixed
+    public function getParam(string $name)
     {
         return (!empty($this->params[$name]))?$this->params[$name]:false;
     }
@@ -59,7 +59,7 @@ class Event implements EventInterface
     /**
      * Set the event name
      */
-    public function setName(string $name): void
+    public function setName(string $name)
     {
         $this->name = $name;
     }
@@ -67,7 +67,7 @@ class Event implements EventInterface
     /**
      * Set the event target
      */
-    public function setTarget(object $target = null): void
+    public function setTarget(object $target = null)
     {
         $this->targer = $target;
     }
@@ -75,7 +75,7 @@ class Event implements EventInterface
     /**
      * Set event parameters
      */
-    public function setParams(array $params): void
+    public function setParams(array $params)
     {
         $this->params = $params;
     }
@@ -83,7 +83,7 @@ class Event implements EventInterface
     /**
      * Indicate whether or not to stop propagating this event
      */
-    public function stopPropagation(bool $flag): void
+    public function stopPropagation(bool $flag)
     {
         $this->stop_propagation = $flag;
     }
