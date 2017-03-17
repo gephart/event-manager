@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-class EventManagerTest extends \PHPUnit_Framework_TestCase
+class EventManagerTest extends \PHPUnit\Framework\TestCase
 {
     public function testEvents()
     {
