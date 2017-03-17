@@ -45,6 +45,14 @@ final class EventManager implements EventManagerInterface
     }
 
     /**
+     * Get all listeners
+     */
+    public function getListeners(): array
+    {
+        return $this->listeners;
+    }
+
+    /**
      * Clear all listeners for a given event
      */
     public function clearListeners(string $event)
