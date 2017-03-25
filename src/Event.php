@@ -53,7 +53,7 @@ class Event implements EventInterface
      */
     public function getParam(string $name)
     {
-        return (!empty($this->params[$name]))?$this->params[$name]:false;
+        return (isset($this->params[$name]))?$this->params[$name]:false;
     }
 
     /**
