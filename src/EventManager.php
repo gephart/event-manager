@@ -69,7 +69,7 @@ final class EventManager implements EventManagerInterface
      *
      * Can accept an EventInterface or will create one if not passed
      */
-    public function trigger($event, object $target = null, array $argv = [])
+    public function trigger($event, $target = null, array $argv = [])
     {
         if (is_string($event)) {
             $event_name = $event;
