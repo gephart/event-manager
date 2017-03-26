@@ -51,7 +51,7 @@ interface EventInterface
      * @param  null|string|object $target
      * @return void
      */
-    public function setTarget(object $target);
+    public function setTarget($target);
 
     /**
      * Set event parameters

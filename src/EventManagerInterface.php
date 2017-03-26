@@ -45,5 +45,5 @@ interface EventManagerInterface
      * @param  array|object $argv
      * @return mixed
      */
-    public function trigger($event, object $target = null, array $argv = []);
+    public function trigger($event, $target = null, array $argv = []);
 }

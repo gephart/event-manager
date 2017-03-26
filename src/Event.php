@@ -67,7 +67,7 @@ class Event implements EventInterface
     /**
      * Set the event target
      */
-    public function setTarget(object $target = null)
+    public function setTarget($target = null)
     {
         $this->targer = $target;
     }
