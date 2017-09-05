@@ -28,4 +28,36 @@ class EventManagerTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals("HelloWord", $result);
     }
+
+    public function testAttach()
+    {
+        $event_manager = new \Gephart\EventManager\EventManager();
+
+        $listener1 = function(){echo "attach";};
+        $listener2 = function(){echo "attach2";};
+
+
+        $event_manager->attach("my.event", $listener1);
+        $event_manager->attach("my.event", $listener2);
+        $event_manager->attach("my.event", $listener2);
+
+        $listeners = $event_manager->getListeners();
+
+        $this->assertEquals(count($listeners), 2);
+    }
+
+    public function testDetach()
+    {
+        $event_manager = new \Gephart\EventManager\EventManager();
+
+        $listener = function(){echo "attach";};
+
+
+        $event_manager->attach("my.event", $listener);
+        $event_manager->detach("my.event", $listener);
+
+        $listeners = $event_manager->getListeners();
+
+        $this->assertEquals(count($listeners), 0);
+    }
 }
