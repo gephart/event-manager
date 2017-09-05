@@ -2,6 +2,13 @@
 
 namespace Gephart\EventManager;
 
+/**
+ * Event manager
+ *
+ * @package Gephart\Annotation
+ * @author Michal Katuščák <michal@katuscak.cz>
+ * @since 0.2
+ */
 final class EventManager implements EventManagerInterface
 {
     /**
@@ -11,6 +18,11 @@ final class EventManager implements EventManagerInterface
 
     /**
      * Attaches a listener to an event
+     *
+     * @param string $event
+     * @param callable $callback
+     * @param int $priority
+     * @return bool
      */
     public function attach(string $event, callable $callback, int $priority = 0): bool
     {
@@ -31,6 +43,10 @@ final class EventManager implements EventManagerInterface
 
     /**
      * Detaches a listener from an event
+     *
+     * @param string $event
+     * @param callable $callback
+     * @return bool
      */
     public function detach(string $event, callable $callback): bool
     {
@@ -46,6 +62,8 @@ final class EventManager implements EventManagerInterface
 
     /**
      * Get all listeners
+     *
+     * @return array
      */
     public function getListeners(): array
     {
@@ -54,6 +72,8 @@ final class EventManager implements EventManagerInterface
 
     /**
      * Clear all listeners for a given event
+     *
+     * @param string $event
      */
     public function clearListeners(string $event)
     {
@@ -68,6 +88,12 @@ final class EventManager implements EventManagerInterface
      * Trigger an event
      *
      * Can accept an EventInterface or will create one if not passed
+     *
+     * @param EventInterface|string $event
+     * @param null $target
+     * @param array $argv
+     * @return bool
+     * @throws \Exception
      */
     public function trigger($event, $target = null, array $argv = [])
     {

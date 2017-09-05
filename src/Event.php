@@ -2,6 +2,13 @@
 
 namespace Gephart\EventManager;
 
+/**
+ * Event manager
+ *
+ * @package Gephart\Annotation
+ * @author Michal Katuščák <michal@katuscak.cz>
+ * @since 0.2
+ */
 class Event implements EventInterface
 {
     /**
@@ -26,6 +33,8 @@ class Event implements EventInterface
 
     /**
      * Get event name
+     *
+     * @return string
      */
     public function getName(): string
     {
@@ -34,6 +43,8 @@ class Event implements EventInterface
 
     /**
      * Get target/context from which event was triggered
+     *
+     * @return object
      */
     public function getTarget()
     {
@@ -42,6 +53,8 @@ class Event implements EventInterface
 
     /**
      * Get parameters passed to the event
+     *
+     * @return array
      */
     public function getParams(): array
     {
@@ -50,6 +63,9 @@ class Event implements EventInterface
 
     /**
      * Get a single parameter by name
+     *
+     * @param string $name
+     * @return bool|mixed
      */
     public function getParam(string $name)
     {
@@ -58,6 +74,8 @@ class Event implements EventInterface
 
     /**
      * Set the event name
+     *
+     * @param string $name
      */
     public function setName(string $name)
     {
@@ -66,6 +84,8 @@ class Event implements EventInterface
 
     /**
      * Set the event target
+     *
+     * @param null $target
      */
     public function setTarget($target = null)
     {
@@ -74,6 +94,8 @@ class Event implements EventInterface
 
     /**
      * Set event parameters
+     *
+     * @param array $params
      */
     public function setParams(array $params)
     {
@@ -82,6 +104,8 @@ class Event implements EventInterface
 
     /**
      * Indicate whether or not to stop propagating this event
+     *
+     * @param bool $flag
      */
     public function stopPropagation(bool $flag)
     {
@@ -90,6 +114,8 @@ class Event implements EventInterface
 
     /**
      * Has this event indicated event propagation should stop?
+     *
+     * @return bool
      */
     public function isPropagationStopped(): bool
     {
