@@ -5,7 +5,7 @@ namespace Gephart\EventManager;
 /**
  * Event manager
  *
- * @package Gephart\Annotation
+ * @package Gephart\EventManager
  * @author Michal Katuščák <michal@katuscak.cz>
  * @since 0.2
  */
