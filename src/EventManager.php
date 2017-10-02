@@ -34,7 +34,7 @@ final class EventManager implements EventManagerInterface
             "priority" => $priority
         ];
 
-        usort($this->listeners, function ($a, $b){
+        usort($this->listeners, function ($a, $b) {
             return $a["priority"] < $b["priority"];
         });
 
@@ -50,7 +50,7 @@ final class EventManager implements EventManagerInterface
      */
     public function detach(string $event, callable $callback): bool
     {
-        foreach($this->listeners as $key=>$listener) {
+        foreach ($this->listeners as $key => $listener) {
             if ($listener["event"] == $event && $listener["callback"] == $callback) {
                 unset($this->listeners[$key]);
                 return true;
@@ -77,7 +77,7 @@ final class EventManager implements EventManagerInterface
      */
     public function clearListeners(string $event)
     {
-        foreach($this->listeners as $key=>$listener) {
+        foreach ($this->listeners as $key => $listener) {
             if ($listener["event"] == $event) {
                 unset($this->listeners[$key]);
             }
@@ -111,7 +111,7 @@ final class EventManager implements EventManagerInterface
 
         $result = false;
 
-        foreach($this->listeners as $key=>$listener) {
+        foreach ($this->listeners as $key => $listener) {
             if ($listener["event"] == $event_name) {
                 $result = $listener["callback"]($event);
 
