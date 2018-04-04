@@ -34,8 +34,8 @@ final class EventManager implements EventManagerInterface
             "priority" => $priority
         ];
 
-        usort($this->listeners, function ($a, $b) {
-            return $a["priority"] < $b["priority"];
+        usort($this->listeners, function ($left, $right) {
+            return $left["priority"] < $right["priority"];
         });
 
         return true;
@@ -98,21 +98,23 @@ final class EventManager implements EventManagerInterface
     public function trigger($event, $target = null, array $argv = [])
     {
         if (is_string($event)) {
-            $event_name = $event;
+            $eventName = $event;
             $event = new Event();
-            $event->setName($event_name);
+            $event->setName($eventName);
             $event->setTarget($target);
             $event->setParams($argv);
         } elseif ($event instanceof EventInterface) {
-            $event_name = $event->getName();
-        } else {
+            $eventName = $event->getName();
+        }
+
+        if (empty($eventName)) {
             throw new \Exception("EventManager: Param event must be string of instance of EventInterface");
         }
 
         $result = false;
 
-        foreach ($this->listeners as $key => $listener) {
-            if ($listener["event"] == $event_name) {
+        foreach ($this->listeners as $listener) {
+            if ($listener["event"] == $eventName) {
                 $result = $listener["callback"]($event);
 
                 if ($event->isPropagationStopped()) {

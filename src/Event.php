@@ -17,7 +17,7 @@ class Event implements EventInterface
     private $name;
 
     /**
-     * @var object
+     * @var object|null
      */
     private $targer;
 
@@ -29,7 +29,7 @@ class Event implements EventInterface
     /**
      * @var bool
      */
-    private $stop_propagation = false;
+    private $stopPropagation = false;
 
     /**
      * Get event name
@@ -44,7 +44,7 @@ class Event implements EventInterface
     /**
      * Get target/context from which event was triggered
      *
-     * @return object
+     * @return object|null
      */
     public function getTarget()
     {
@@ -85,7 +85,7 @@ class Event implements EventInterface
     /**
      * Set the event target
      *
-     * @param null $target
+     * @param object|null $target
      */
     public function setTarget($target = null)
     {
@@ -109,7 +109,7 @@ class Event implements EventInterface
      */
     public function stopPropagation(bool $flag)
     {
-        $this->stop_propagation = $flag;
+        $this->stopPropagation = $flag;
     }
 
     /**
@@ -119,6 +119,6 @@ class Event implements EventInterface
      */
     public function isPropagationStopped(): bool
     {
-        return $this->stop_propagation;
+        return $this->stopPropagation;
     }
 }
