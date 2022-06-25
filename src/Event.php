@@ -17,12 +17,12 @@ class Event implements EventInterface
     private $name;
 
     /**
-     * @var object|null
+     * @var object|string|null
      */
     private $targer;
 
     /**
-     * @var array
+     * @var array<mixed>
      */
     private $params;
 
@@ -44,7 +44,7 @@ class Event implements EventInterface
     /**
      * Get target/context from which event was triggered
      *
-     * @return object|null
+     * @return object|string|null
      */
     public function getTarget()
     {
@@ -54,7 +54,7 @@ class Event implements EventInterface
     /**
      * Get parameters passed to the event
      *
-     * @return array
+     * @return array<mixed>
      */
     public function getParams(): array
     {
@@ -65,7 +65,7 @@ class Event implements EventInterface
      * Get a single parameter by name
      *
      * @param string $name
-     * @return bool|mixed
+     * @return bool|string
      */
     public function getParam(string $name)
     {
@@ -85,7 +85,7 @@ class Event implements EventInterface
     /**
      * Set the event target
      *
-     * @param object|null $target
+     * @param object|string|null $target
      */
     public function setTarget($target = null)
     {
@@ -95,7 +95,7 @@ class Event implements EventInterface
     /**
      * Set event parameters
      *
-     * @param array $params
+     * @param array<mixed> $params
      */
     public function setParams(array $params)
     {
@@ -106,6 +106,7 @@ class Event implements EventInterface
      * Indicate whether or not to stop propagating this event
      *
      * @param bool $flag
+     * @return void
      */
     public function stopPropagation(bool $flag)
     {

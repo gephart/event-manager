@@ -5,6 +5,8 @@ namespace Gephart\EventManager;
 /**
  * Interface for EventManager
  * Code from https://github.com/php-fig/fig-standards/blob/master/proposed/event-manager.md
+ *
+ * TODO: Implement accepted standard - not proposed
  */
 interface EventManagerInterface
 {
@@ -42,7 +44,7 @@ interface EventManagerInterface
      *
      * @param  string|EventInterface $event
      * @param  object|string $target
-     * @param  array $argv
+     * @param  array<mixed> $argv
      * @return mixed
      */
     public function trigger($event, $target = null, array $argv = []);

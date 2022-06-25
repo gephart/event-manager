@@ -2,6 +2,8 @@
 
 namespace Gephart\EventManager;
 
+use Exception;
+
 /**
  * Event manager
  *
@@ -12,7 +14,7 @@ namespace Gephart\EventManager;
 final class EventManager implements EventManagerInterface
 {
     /**
-     * @var array
+     * @var array<array<mixed>>
      */
     private $listeners = [];
 
@@ -34,8 +36,8 @@ final class EventManager implements EventManagerInterface
             "priority" => $priority
         ];
 
-        usort($this->listeners, function ($left, $right) {
-            return $left["priority"] < $right["priority"];
+        usort($this->listeners, function (array $left, array $right) {
+            return (int) ($left["priority"] < $right["priority"]);
         });
 
         return true;
@@ -63,7 +65,7 @@ final class EventManager implements EventManagerInterface
     /**
      * Get all listeners
      *
-     * @return array
+     * @return array<array<mixed>>
      */
     public function getListeners(): array
     {
@@ -90,8 +92,8 @@ final class EventManager implements EventManagerInterface
      * Can accept an EventInterface or will create one if not passed
      *
      * @param EventInterface|string $event
-     * @param null $target
-     * @param array $argv
+     * @param object|string|null $target
+     * @param array<mixed> $argv
      * @return bool
      * @throws \Exception
      */
@@ -108,7 +110,7 @@ final class EventManager implements EventManagerInterface
         }
 
         if (empty($eventName)) {
-            throw new \Exception("EventManager: Param event must be string of instance of EventInterface");
+            throw new Exception("EventManager: Param event must be string of instance of EventInterface");
         }
 
         $result = false;

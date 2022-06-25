@@ -25,7 +25,7 @@ interface EventInterface
     /**
      * Get parameters passed to the event
      *
-     * @return array
+     * @return array<mixed>
      */
     public function getParams();
 
@@ -56,7 +56,7 @@ interface EventInterface
     /**
      * Set event parameters
      *
-     * @param  array $params
+     * @param  array<mixed> $params
      * @return void
      */
     public function setParams(array $params);
@@ -65,6 +65,7 @@ interface EventInterface
      * Indicate whether or not to stop propagating this event
      *
      * @param  bool $flag
+     * @return void
      */
     public function stopPropagation(bool $flag);
 
