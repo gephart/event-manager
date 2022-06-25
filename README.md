@@ -1,7 +1,7 @@
 Gephart Event Manager
 ===
 
-[![Build Status](https://travis-ci.org/gephart/event-manager.svg?branch=master)](https://travis-ci.org/gephart/event-manager)
+[![php](https://github.com/gephart/event-manager/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/gephart/event-manager/actions)
 
 Dependencies
 ---
