@@ -37,7 +37,7 @@ final class EventManager implements EventManagerInterface
         ];
 
         usort($this->listeners, function (array $left, array $right) {
-            return (int) ($left["priority"] < $right["priority"]);
+            return $right["priority"] <=> $left["priority"];
         });
 
         return true;
