@@ -19,9 +19,9 @@ Using
 
 Basic using:
 
-```
-$listener1 = function(){echo "Hello";};
-$listener2 = function(){echo "World";};
+```php
+$listener1 = function () { echo "Hello"; };
+$listener2 = function () { echo "World"; };
 
 $event_manager->attach("my.event", $listener1, 200);
 $event_manager->attach("my.event", $listener2, 100);
